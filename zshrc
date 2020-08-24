@@ -80,6 +80,7 @@ alias gsh="git stash"
 
 alias ff="find ./ -type f -name"
 alias fd="find ./ -type d -name"
+alias f="find ./ -type f -name '*' | xargs grep"
 alias fphp="find ./ -type f -name '*php' | xargs grep"
 alias fyml="find ./ -type f -name '*yml' | xargs grep"
 alias fjs="find ./ -type f -name '*js' | xargs grep"
