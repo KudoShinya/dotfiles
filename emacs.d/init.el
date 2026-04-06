@@ -1,3 +1,7 @@
+(require 'server)
+(unless (server-running-p)
+  (server-start))
+
 (electric-indent-mode -1)
 
 ;;
@@ -163,19 +167,6 @@
 ;;                   (cons "Ricty Diminished Discord" "iso10646-1"))
 
 ;;
-;; Auto Complete
-;;
-(require 'auto-complete-config)
-(ac-config-default)
-(add-to-list 'ac-modes 'text-mode)         ;; text-modeでも自動的に有効にする
-(add-to-list 'ac-modes 'fundamental-mode)  ;; fundamental-mode
-(add-to-list 'ac-modes 'org-mode)
-(add-to-list 'ac-modes 'yatex-mode)
-(ac-set-trigger-key "TAB")
-(setq ac-use-menu-map t)       ;; 補完メニュー表示時にC-n/C-pで補完候補選択
-(setq ac-use-fuzzy t)          ;; 曖昧マッチ
-
-;;
 ;; el-get.el
 ;;
 ;;get el-get.el
@@ -214,8 +205,6 @@
   (if (not (equal (init-loader-error-log) ""))
       (init-loader-show-log))
 )
-
-(global-linum-mode t)
 
 (global-set-key (kbd "M-n") (lambda () (interactive) (scroll-up 1)))
 (global-set-key (kbd "M-p") (lambda () (interactive) (scroll-down 1)))
